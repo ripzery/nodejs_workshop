@@ -29,11 +29,12 @@ module.exports = function () {
 
     indexRoute(app);
 
+    let outputStyle = process.env.NODE_ENV === 'development' ? 'expanded' : 'compressed';
     // use before express static public to compile first then response
     app.use(sass({
         src: './sass',
         dest: './public/css',
-        outputStyle: 'compressed',
+        outputStyle,
         prefix: '/css',
         indentedSyntax: true
     }));
