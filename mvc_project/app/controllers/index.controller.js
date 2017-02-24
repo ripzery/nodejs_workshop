@@ -2,7 +2,10 @@
  * Created by ripzery on 2/24/17.
  */
 exports.render = function (req, res) {
-    res.send('Hello World');
+    res.render('index', {
+        'title': 'Hello World',
+        'message': 'How are things'
+    });
 };
 
 exports.ascend = function (req, res) {
