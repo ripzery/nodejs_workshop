@@ -15,8 +15,22 @@ const helloWorld = function (req, res, next) {
     res.end('Hello World');
 };
 
+const goodbyeWorld = function (req, res, next) {
+    res.setHeader('Content-Type', 'text/plain');
+    res.end('Goodbye World');
+
+    next();
+};
+
+
+const test = function(req, res, next){
+    console.log(res);
+};
+
 app.use(logger);
-app.use(helloWorld);
+app.use('/hello', helloWorld);
+app.use('/goodbye', goodbyeWorld);
+app.use(test);
 app.listen(3000);
 
 console.log("Server is running at http://localhost:3000");
