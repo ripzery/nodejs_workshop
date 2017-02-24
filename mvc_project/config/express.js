@@ -8,6 +8,7 @@ const sass = require('node-sass-middleware');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const indexRoute = require('../app/routes/index.routes');
+const userRoute = require('../app/routes/user.routes');
 
 module.exports = function () {
     const app = express();
@@ -19,17 +20,22 @@ module.exports = function () {
         console.log("In production mode...");
     }
 
+    // set json parser
     app.use(bodyParser.urlencoded({
         extended: true
     }));
     app.use(bodyParser.json());
 
+    // set view engine
     app.set("views", "./app/views");
     app.set("view engine", "pug");
 
+    // define route
     indexRoute(app);
+    userRoute(app);
 
     let outputStyle = process.env.NODE_ENV === 'development' ? 'expanded' : 'compressed';
+
     // use before express static public to compile first then response
     app.use(sass({
         src: './sass',
