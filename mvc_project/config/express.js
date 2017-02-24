@@ -5,6 +5,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const sass = require('node-sass-middleware');
+const validator = require('express-validator');
 const bodyParser = require('body-parser');
 const compression = require('compression');
 const indexRoute = require('../app/routes/index.routes');
@@ -25,7 +26,7 @@ module.exports = function () {
         extended: true
     }));
     app.use(bodyParser.json());
-
+    app.use(validator());
     // set view engine
     app.set("views", "./app/views");
     app.set("view engine", "pug");
