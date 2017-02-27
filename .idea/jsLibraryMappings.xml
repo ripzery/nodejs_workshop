@@ -4,5 +4,6 @@
     <includedPredefinedLibrary name="ECMAScript 6" />
     <excludedPredefinedLibrary name="basic_javascript_workshop/day1/express/node_modules" />
     <excludedPredefinedLibrary name="basic_javascript_workshop/day1/mvc_project/node_modules" />
+    <excludedPredefinedLibrary name="basic_javascript_workshop/day2/exercise-setup-es6-webpack/node_modules" />
   </component>
 </project>
