@@ -8,5 +8,8 @@ let trace = require('tracer').colorConsole({
     level: 'info',
 });
 
-trace.info(math.add(1, 2));
-
+// trace.info(math.add(1, 2));
+math.readFileSync('./hello.txt').then(data => {
+    console.log(data);
+    return data;
+});

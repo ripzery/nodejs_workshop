@@ -1,6 +1,7 @@
 /**
  * Created by ripzery on 2/27/17.
  */
+var fs = require('fs');
 
 /* Arrow function */
 /* Named export */
@@ -11,11 +12,21 @@ const area = (r) => {
     return PI * r * r
 };
 
+const readFileSync = (filename) => {
+    return new Promise( (resolve, reject) => {
+        fs.readFile(filename, 'utf-8', (error, data) => {
+            if (!error) resolve(data);
+            else reject(error)
+        });
+    })
+};
+
 export {
     add,
     PI,
     volume,
-    area
+    area,
+    readFileSync
 }
 
 // Note : ใน es6 เราสามารถ export ทั้งแบบ named export และ default export ในไฟล์เดียวกันได้
